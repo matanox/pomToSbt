@@ -3,7 +3,7 @@ import scala.xml._
 object pomToSbt {
     def main(args: Array[String]) {
       print("libraryDependencies ++= Seq(")
-      (XML.load("pomRefined.xml") \\ "dependencies") \ "dependency" foreach ((dependency: Node) => {
+      (XML.load("pom.xml") \\ "dependencies") \ "dependency" foreach ((dependency: Node) => {
         val groupId = (dependency \ "groupId").text
         val artifactId = (dependency \ "artifactId").text
         val version = (dependency \ "version").text
